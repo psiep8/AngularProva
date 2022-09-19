@@ -15,16 +15,6 @@ export class TabellaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data = [{
-      ID: "ad43f3",
-      Username: "peppe",
-      Email: "giuseppe@gmail.com"
-    },
-      {
-        ID: "sa244df",
-        Username: "Dan1l0",
-        Email: "Danilo@gmail.com"
-      }]
   }
 
 }

@@ -13,6 +13,7 @@ export class AppComponent {
   firstButton: MyButtonConfig;
   header: MyHeaders[];
   firstTable: MyTableConfig;
+  data: any[];
 
   ngOnInit(): void {
 
@@ -23,13 +24,13 @@ export class AppComponent {
     }
 
     this.header = [{
-      key: "ID",
+      key: "id",
       label: "ID"
     }, {
-      key: "Username",
+      key: "username",
       label: "Username"
     }, {
-      key: "Email",
+      key: "email",
       label: "Email"
     }]
 
@@ -37,6 +38,15 @@ export class AppComponent {
       headers: this.header
     }
 
-
+    this.data = [{
+      id: "ad43f3",
+      username: "peppe",
+      email: "giuseppe@gmail.com"
+    },
+      {
+        id: "sa244df",
+        username: "Dan1l0",
+        email: "Danilo@gmail.com"
+      }]
   }
 }

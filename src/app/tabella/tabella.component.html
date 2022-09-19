@@ -1,14 +1,14 @@
 <table>
   <thead>
-  <th *ngFor="let i of tableConfig.headers">
-    <tr>{{i.label}}</tr>
+  <th *ngFor="let headers of tableConfig.headers">
+    <tr>{{headers.label}}</tr>
   </th>
   </thead>
   <tbody>
-  <tr *ngFor="let i of data">
-    <td>{{i.ID}}</td>
-    <td>{{i.Username}}</td>
-    <td>{{i.Email}}</td>
+  <tr *ngFor="let data of data">
+    <td *ngFor="let headers of tableConfig.headers">
+      {{data[headers.key]}}
+    </td>
   </tr>
   </tbody>
 </table>
