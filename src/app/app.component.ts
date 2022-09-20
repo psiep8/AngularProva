@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {MyButtonConfig} from "./button/button.component";
-import {MyHeaders, MyTableConfig} from "./tabella/tabella.component";
-import {orderBy} from "lodash";
+import {MyHeaders, MyOrder, MySearch, MyTableConfig} from "./tabella/tabella.component";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +13,8 @@ export class AppComponent {
   firstButton: MyButtonConfig;
   header: MyHeaders[];
   firstTable: MyTableConfig;
+  order: MyOrder;
+  search: MySearch;
   data: any[];
 
   ngOnInit(): void {
@@ -23,7 +24,10 @@ export class AppComponent {
       text: "Premi qui",
       icon: "https://i.ytimg.com/vi/4f3mux0q7oY/maxresdefault.jpg"
     }
-
+    this.order = {
+      defaultColumn: "id",
+      orderType: "desc"
+    }
     this.header = [{
       key: "id",
       label: "ID"
@@ -36,7 +40,8 @@ export class AppComponent {
     }]
 
     this.firstTable = {
-      headers: this.header
+      headers: this.header,
+      order: this.order
     }
 
     this.data = [{
