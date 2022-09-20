@@ -23,7 +23,10 @@ export class TabellaComponent implements OnInit {
   }
 
   onSelect(key: string): void {
-    this.key = key;
+    if (this.key !== key) {
+      this.key = key
+      this.sortedOrder = 'asc'
+    }
     if (this.sortedOrder === 'asc') {
       this.sortedOrder = 'desc'
     } else

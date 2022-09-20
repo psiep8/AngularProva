@@ -41,13 +41,19 @@ export class AppComponent {
 
     this.data = [{
       id: "ad43f3",
-      username: "peppe",
+      username: "Peppe",
       email: "giuseppe@gmail.com"
     },
       {
         id: "sa244df",
         username: "Dan1l0",
-        email: "Danilo@gmail.com"
+        email: "danilo@gmail.com"
+      }
+      ,
+      {
+        id: "h452f2v",
+        username: "Soccia",
+        email: "aus@gmail.com"
       }]
   }
 
