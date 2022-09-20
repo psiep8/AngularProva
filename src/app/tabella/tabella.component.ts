@@ -12,7 +12,7 @@ export class TabellaComponent implements OnInit {
 
   @Input() data: any [];
 
-  sortedOrder: string = 'asc';
+  sortedOrder: string = '';
 
   key: string;
 
@@ -23,11 +23,8 @@ export class TabellaComponent implements OnInit {
   }
 
   onSelect(key: string): void {
-    if (this.key !== key) {
+    if (this.key !== key || this.sortedOrder === 'asc') {
       this.key = key
-      this.sortedOrder = 'asc'
-    }
-    if (this.sortedOrder === 'asc') {
       this.sortedOrder = 'desc'
     } else
       this.sortedOrder = 'asc'
