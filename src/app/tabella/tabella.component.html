@@ -1,13 +1,17 @@
-<table>
+<table class="table table-striped-columns">
   <thead>
-  <th *ngFor="let headers of tableConfig.headers">
+  <th *ngFor="let headers of tableConfig.headers" (click)="onSelect(headers.key)">
     <tr>{{headers.label}}</tr>
+    <p *ngIf="sortedOrder==='asc'; else other_content">
+      <i class="arrow up"></i>
+    </p>
+    <ng-template #other_content><i class="arrow down"></i></ng-template>
   </th>
   </thead>
   <tbody>
-  <tr *ngFor="let data of data">
+  <tr *ngFor="let data of data | order : key : sortedOrder">
     <td *ngFor="let headers of tableConfig.headers">
-      {{data[headers.key]}}
+      {{ data[headers.key]}}
     </td>
   </tr>
   </tbody>

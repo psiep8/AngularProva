@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MyButtonConfig} from "./button/button.component";
 import {MyHeaders, MyTableConfig} from "./tabella/tabella.component";
+import {orderBy} from "lodash";
 
 @Component({
   selector: 'app-root',
@@ -49,4 +50,6 @@ export class AppComponent {
         email: "Danilo@gmail.com"
       }]
   }
+
+
 }

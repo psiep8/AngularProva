@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 
+
 @Component({
   selector: 'app-tabella',
   templateUrl: './tabella.component.html',
@@ -11,12 +12,23 @@ export class TabellaComponent implements OnInit {
 
   @Input() data: any [];
 
+  sortedOrder: string = 'asc';
+
+  key: string;
+
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  onSelect(key: string): void {
+    this.key = key;
+    if (this.sortedOrder === 'asc') {
+      this.sortedOrder = 'desc'
+    } else
+      this.sortedOrder = 'asc'
+  }
 }
 
 export class MyTableConfig {
@@ -32,3 +44,5 @@ export class MyHeaders {
   label: string;
 
 }
+
+
