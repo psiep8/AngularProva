@@ -17,6 +17,7 @@ export class AppComponent {
   search: MySearch;
   data: any[];
 
+
   ngOnInit(): void {
 
     this.firstButton = {
@@ -41,7 +42,14 @@ export class AppComponent {
 
     this.firstTable = {
       headers: this.header,
-      order: this.order
+      order: this.order,
+      search: this.search
+    }
+
+    this.search = {
+      columns: [
+        "id", "username", "email"
+      ]
     }
 
     this.data = [{

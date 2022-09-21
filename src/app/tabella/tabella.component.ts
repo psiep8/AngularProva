@@ -16,12 +16,19 @@ export class TabellaComponent implements OnInit {
 
   key: string;
 
+  columns: string[];
+
+  filterText: string = '';
+
+  selected: string = '';
+
   constructor() {
   }
 
   ngOnInit(): void {
     this.key = this.tableConfig.order.defaultColumn;
     this.sortedOrder = this.tableConfig.order.orderType;
+    this.columns = this.tableConfig.search.columns;
   }
 
   onSelect(key: string): void {
@@ -32,6 +39,7 @@ export class TabellaComponent implements OnInit {
       this.sortedOrder = 'asc'
     }
   }
+
 }
 
 export class MyTableConfig {
@@ -39,6 +47,8 @@ export class MyTableConfig {
   headers: MyHeaders [];
 
   order: MyOrder;
+
+  search: MySearch;
 
 }
 
@@ -61,5 +71,6 @@ export class MyOrder {
 export class MySearch {
 
   columns: string[]
+
 }
 
