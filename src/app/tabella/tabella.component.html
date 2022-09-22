@@ -1,9 +1,8 @@
 <div>
   <select [(ngModel)]="selected">
-    <option *ngFor="let column of columns">{{column}}</option>
+    <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
-  {{selected}}
-  <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra per id, username o email">
+  <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra">
 </div>
 <table class="table table-striped-columns">
   <thead>
@@ -13,7 +12,7 @@
   </th>
   </thead>
   <tbody>
-  <tr *ngFor="let data of data | order : key : sortedOrder | filter : filterText">
+  <tr *ngFor="let data of data | order : key : sortedOrder | filter : filterText : selected">
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>

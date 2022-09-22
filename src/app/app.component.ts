@@ -40,16 +40,16 @@ export class AppComponent {
       label: "Email"
     }]
 
-    this.firstTable = {
-      headers: this.header,
-      order: this.order,
-      search: this.search
-    }
-
     this.search = {
       columns: [
         "id", "username", "email"
       ]
+    }
+
+    this.firstTable = {
+      headers: this.header,
+      order: this.order,
+      search: this.search
     }
 
     this.data = [{
