@@ -7,6 +7,7 @@ import {TabellaComponent} from './tabella/tabella.component';
 import {OrderPipe} from './order.pipe';
 import {FilterPipe} from './filter.pipe';
 import {FormsModule} from "@angular/forms";
+import { PaginationPipe } from './pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {FormsModule} from "@angular/forms";
     TabellaComponent,
     OrderPipe,
     FilterPipe,
+    PaginationPipe,
   ],
   imports: [
     BrowserModule,

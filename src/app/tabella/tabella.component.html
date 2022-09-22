@@ -1,8 +1,9 @@
 <div>
-  <select [(ngModel)]="selected">
+  <select class="form-select form-select-lg mb-3" [(ngModel)]="selected">
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
-  <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra">
+  <div class="form-outline">
+    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra"></div>
 </div>
 <table class="table table-striped-columns">
   <thead>
@@ -12,10 +13,19 @@
   </th>
   </thead>
   <tbody>
-  <tr *ngFor="let data of data | order : key : sortedOrder | filter : filterText : selected">
+
+  <tr
+    *ngFor="let data of data | filter : filterText : selected | pagination : itemsForPage : page|order : key : sortedOrder">
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>
   </tr>
   </tbody>
+  <nav aria-label="...">
+    <ul class="pagination pagination-lg">
+      <li class="page-item active" aria-current="page">
+        <button *ngFor="let i of numberPage" (click)="selectPage(i)">{{i}}</button>
+      </li>
+    </ul>
+  </nav>
 </table>

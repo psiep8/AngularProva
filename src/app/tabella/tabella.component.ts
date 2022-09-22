@@ -22,13 +22,21 @@ export class TabellaComponent implements OnInit {
 
   selected: string = '';
 
+  itemsForPage: number;
+
+  numberPage: number [];
+
+  page: number = 1;
+
   constructor() {
   }
 
   ngOnInit(): void {
+    this.columns = this.tableConfig.search.columns;
+    this.itemsForPage = this.tableConfig.pagination.itemPerPage;
+    this.numberPage = this.tableConfig.pagination.itemPerPageOptions;
     this.key = this.tableConfig.order.defaultColumn;
     this.sortedOrder = this.tableConfig.order.orderType;
-    this.columns = this.tableConfig.search.columns;
   }
 
   onSelect(key: string): void {
@@ -40,6 +48,10 @@ export class TabellaComponent implements OnInit {
     }
   }
 
+  selectPage(page: number): void {
+    this.page = page;
+  }
+
 }
 
 export class MyTableConfig {
@@ -49,6 +61,8 @@ export class MyTableConfig {
   order: MyOrder;
 
   search: MySearch;
+
+  pagination: MyPagination;
 
 }
 
@@ -71,6 +85,14 @@ export class MyOrder {
 export class MySearch {
 
   columns: string[]
+
+}
+
+export class MyPagination {
+
+  itemPerPage: number;
+
+  itemPerPageOptions: number [];
 
 }
 

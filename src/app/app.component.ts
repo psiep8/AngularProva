@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MyButtonConfig} from "./button/button.component";
-import {MyHeaders, MyOrder, MySearch, MyTableConfig} from "./tabella/tabella.component";
+import {MyHeaders, MyOrder, MyPagination, MySearch, MyTableConfig} from "./tabella/tabella.component";
+
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   firstTable: MyTableConfig;
   order: MyOrder;
   search: MySearch;
+  pagination: MyPagination;
   data: any[];
 
 
@@ -46,10 +48,17 @@ export class AppComponent {
       ]
     }
 
+    this.pagination = {
+
+      itemPerPage: 3,
+      itemPerPageOptions: [1, 2, 3]
+    }
+
     this.firstTable = {
       headers: this.header,
       order: this.order,
-      search: this.search
+      search: this.search,
+      pagination: this.pagination
     }
 
     this.data = [{
@@ -67,6 +76,36 @@ export class AppComponent {
         id: "h452f2v",
         username: "Soccia",
         email: "aus@gmail.com"
+      },
+      {
+        id: "b534sd4",
+        username: "farfallina",
+        email: "ff@virgilio.com"
+      },
+      {
+        id: "n9045iof",
+        username: "1lly",
+        email: "l1lly@hotmail.com"
+      },
+      {
+        id: "uv8429cc",
+        username: "k1ng",
+        email: "king@outlook.com"
+      },
+      {
+        id: "f3i2j02",
+        username: "beststis",
+        email: "best@libero.com"
+      },
+      {
+        id: "b53u20v",
+        username: "s4cccc",
+        email: "sac@outlook.com"
+      },
+      {
+        id: "g33v4b537",
+        username: "furious",
+        email: "king@yahoo.com"
       }]
   }
 
