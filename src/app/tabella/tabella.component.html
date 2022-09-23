@@ -3,7 +3,9 @@
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
   <div class="form-outline">
-    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra"></div>
+    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra"> <a
+    class="btn btn-dark my-1"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
+  </div>
 </div>
 <table class="table table-striped-columns">
   <thead>
@@ -11,6 +13,7 @@
     <tr>{{headers.label}}</tr>
     <i [ngClass]="[sortedOrder==='asc' ? 'arrow up' : 'arrow down']"></i>
   </th>
+  <th class="accordion-header"><i>Operazioni</i></th>
   </thead>
   <tbody>
 
@@ -19,6 +22,10 @@
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>
+    <th>
+      <a class="btn btn-primary my-1"><i class="fa fa-pen">Modifica</i></a>
+      <a class="btn btn-danger my-1"><i class="fa fa-trash-alt">Cancella</i></a>
+    </th>
   </tr>
   </tbody>
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedItemsOption">
@@ -27,7 +34,11 @@
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        <button *ngFor="let i of itemsOptionsPage" (click)="selectPage(i)">{{i}}</button>
+        Page
+        <select [(ngModel)]="page">
+          <option *ngFor="let i of itemsOptionsPage" (click)="selectPage(i)">{{i}}</option>
+        </select>
+        of : {{itemsOptionsPage.length}}
       </li>
     </ul>
   </nav>
