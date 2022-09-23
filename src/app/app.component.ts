@@ -51,7 +51,7 @@ export class AppComponent {
     this.pagination = {
 
       itemPerPage: 3,
-      itemPerPageOptions: [1, 2, 3]
+      itemPerPageOptions: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     }
 
     this.firstTable = {

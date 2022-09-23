@@ -1,5 +1,5 @@
 <div>
-  <select class="form-select form-select-lg mb-3" [(ngModel)]="selected">
+  <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedField">
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
   <div class="form-outline">
@@ -15,16 +15,19 @@
   <tbody>
 
   <tr
-    *ngFor="let data of data | filter : filterText : selected | pagination : itemsForPage : page|order : key : sortedOrder">
+    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : defaultItems: selectedItemsOption:page">
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>
   </tr>
   </tbody>
+  <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedItemsOption">
+    <option *ngFor="let i of itemsOptionsPage" [value]="i">{{i}}</option>
+  </select>
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        <button *ngFor="let i of numberPage" (click)="selectPage(i)">{{i}}</button>
+        <button *ngFor="let i of itemsOptionsPage" (click)="selectPage(i)">{{i}}</button>
       </li>
     </ul>
   </nav>

@@ -20,11 +20,13 @@ export class TabellaComponent implements OnInit {
 
   filterText: string = '';
 
-  selected: string = '';
+  selectedField: string = '';
 
-  itemsForPage: number;
+  selectedItemsOption: string = '';
 
-  numberPage: number [];
+  defaultItems: number;
+
+  itemsOptionsPage: number [];
 
   page: number = 1;
 
@@ -33,13 +35,14 @@ export class TabellaComponent implements OnInit {
 
   ngOnInit(): void {
     this.columns = this.tableConfig.search.columns;
-    this.itemsForPage = this.tableConfig.pagination.itemPerPage;
-    this.numberPage = this.tableConfig.pagination.itemPerPageOptions;
+    this.defaultItems = this.tableConfig.pagination.itemPerPage;
+    this.itemsOptionsPage = this.tableConfig.pagination.itemPerPageOptions;
     this.key = this.tableConfig.order.defaultColumn;
     this.sortedOrder = this.tableConfig.order.orderType;
   }
 
   onSelect(key: string): void {
+    this.page = 1;
     if (this.key !== key || this.sortedOrder === 'asc') {
       this.key = key
       this.sortedOrder = 'desc'
@@ -50,6 +53,7 @@ export class TabellaComponent implements OnInit {
 
   selectPage(page: number): void {
     this.page = page;
+    console.log(page)
   }
 
 }
