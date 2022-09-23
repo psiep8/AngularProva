@@ -53,7 +53,6 @@ export class TabellaComponent implements OnInit {
 
   selectPage(page: number): void {
     this.page = page;
-    console.log(page)
   }
 
 }

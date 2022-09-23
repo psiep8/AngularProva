@@ -9,7 +9,6 @@ export class PaginationPipe implements PipeTransform {
     let i = +itemsForPage;
     let def = defaultItems * (numberPage - 1);
     let first = i * (numberPage - 1);
-    console.log(i);
     if (i === 0) {
       return data.slice(def, def + defaultItems)
     } else {
