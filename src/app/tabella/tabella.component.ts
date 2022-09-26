@@ -1,4 +1,5 @@
-import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MyTableActionEnum, MyTableConfig} from "./myclasses";
 
 
 @Component({
@@ -7,10 +8,7 @@ import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./tabella.component.css']
 })
 export class TabellaComponent implements OnInit {
-
-  @Output() createUser = new EventEmitter<string>();
-  @Output() modifyUser = new EventEmitter<string>();
-  @Output() deleteUser = new EventEmitter<string>();
+  action = MyTableActionEnum;
 
   @Input() tableConfig: MyTableConfig;
 
@@ -60,50 +58,3 @@ export class TabellaComponent implements OnInit {
   }
 
 }
-
-export class MyTableConfig {
-
-  headers: MyHeaders [];
-
-  order: MyOrder;
-
-  search: MySearch;
-
-  pagination: MyPagination;
-
-}
-
-export class MyHeaders {
-
-  key: string;
-
-  label: string;
-
-}
-
-export class MyOrder {
-
-  defaultColumn: string;
-
-  orderType: string;
-
-}
-
-export class MySearch {
-
-  columns: string[]
-
-}
-
-export class MyPagination {
-
-  itemPerPage: number;
-
-  itemPerPageOptions: number [];
-
-}
-
-export enum MyTableActionEnum {
-  NEW_ROW, EDIT, DELETE
-}
-

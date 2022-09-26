@@ -3,8 +3,8 @@
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
   <div class="form-outline">
-    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra"> <a
-    class="btn btn-dark my-1"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
+    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra">
+    <a class="btn btn-dark my-1" (click)="action.NEW_ROW"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
   </div>
 </div>
 <table class="table table-striped-columns">
@@ -23,23 +23,22 @@
       {{ data[headers.key]}}
     </td>
     <th>
-      <a class="btn btn-primary my-1"><i class="fa fa-pen">Modifica</i></a>
-      <a class="btn btn-danger my-1"><i class="fa fa-trash-alt">Cancella</i></a>
+      <a class="btn btn-primary my-1" (click)="action.EDIT"><i class="fa fa-pen">Modifica</i></a>
+      <a class="btn btn-danger my-1" (click)="action.DELETE"><i class="fa fa-trash-alt">Cancella</i></a>
     </th>
   </tr>
   </tbody>
   Numeri di elementi da mostrare:
+
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedItemsOption">
     <option *ngFor="let i of itemsOptionsPage" [value]="i">{{i}}</option>
   </select>
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        Page
-        <select [(ngModel)]="page">
-          <option *ngFor="let i of itemsOptionsPage" (click)="selectPage(i)">{{i}}</option>
-        </select>
-        of : {{itemsOptionsPage.length}}
+        <button *ngFor="let i of itemsOptionsPage | filterpage : page" (click)="selectPage(i)">
+          {{i}}</button>
+        <i>Pagina {{page}}</i>
       </li>
     </ul>
   </nav>

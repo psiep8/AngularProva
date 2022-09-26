@@ -8,6 +8,7 @@ import {OrderPipe} from './order.pipe';
 import {FilterPipe} from './filter.pipe';
 import {FormsModule} from "@angular/forms";
 import { PaginationPipe } from './pagination.pipe';
+import { FilterpagePipe } from './filterpage.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PaginationPipe } from './pagination.pipe';
     OrderPipe,
     FilterPipe,
     PaginationPipe,
+    FilterpagePipe,
   ],
   imports: [
     BrowserModule,

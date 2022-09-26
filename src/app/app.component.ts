@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MyButtonConfig} from "./button/button.component";
-import {MyHeaders, MyOrder, MyPagination, MySearch, MyTableConfig} from "./tabella/tabella.component";
+import {MyHeaders, MyOrder, MyPagination, MySearch, MyTableConfig} from "./tabella/myclasses";
 
 
 @Component({
