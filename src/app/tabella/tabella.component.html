@@ -1,12 +1,15 @@
+<a class="btn btn-dark my-1" (click)="action.NEW_ROW"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
+
 <div>
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedField">
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
-  <div class="form-outline">
-    <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra">
-    <a class="btn btn-dark my-1" (click)="action.NEW_ROW"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
-  </div>
 </div>
+
+<div class="form-outline">
+  <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra per campo">
+</div>
+
 <table class="table table-striped-columns">
   <thead>
   <th *ngFor="let headers of tableConfig.headers" (click)="onSelect(headers.key)">
@@ -18,7 +21,7 @@
   <tbody>
 
   <tr
-    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : defaultItems: selectedItemsOption:page">
+    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : defaultItems : selectedItemsOption:page">
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>
@@ -29,17 +32,17 @@
   </tr>
   </tbody>
   Numeri di elementi da mostrare:
-
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedItemsOption">
-    <option *ngFor="let i of itemsOptionsPage" [value]="i">{{i}}</option>
+    <option *ngFor="let i of itemsOptionsPage">{{i}}</option>
   </select>
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        <button *ngFor="let i of itemsOptionsPage | filterpage : page" (click)="selectPage(i)">
-          {{i}}</button>
+        <button *ngFor="let i of data | filterpage : defaultItems:selectedItemsOption:page" (click)="selectPage(i.id) ">
+          {{i.id}}</button>
         <i>Pagina {{page}}</i>
       </li>
     </ul>
   </nav>
 </table>
+
