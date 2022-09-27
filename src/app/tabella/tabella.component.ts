@@ -26,8 +26,6 @@ export class TabellaComponent implements OnInit {
 
   selectedItemsOption: string = '';
 
-  defaultItems: number;
-
   itemsOptionsPage: number [];
 
   page: number = 1;
@@ -37,10 +35,10 @@ export class TabellaComponent implements OnInit {
 
   ngOnInit(): void {
     this.columns = this.tableConfig.search.columns;
-    this.defaultItems = this.tableConfig.pagination.itemPerPage;
     this.itemsOptionsPage = this.tableConfig.pagination.itemPerPageOptions;
     this.key = this.tableConfig.order.defaultColumn;
     this.sortedOrder = this.tableConfig.order.orderType;
+    this.selectedItemsOption = this.tableConfig.pagination.itemPerPage.toString();
   }
 
   onSelect(key: string): void {
@@ -56,5 +54,4 @@ export class TabellaComponent implements OnInit {
   selectPage(page: number): void {
     this.page = page;
   }
-
 }

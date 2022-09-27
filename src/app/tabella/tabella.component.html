@@ -21,7 +21,7 @@
   <tbody>
 
   <tr
-    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : defaultItems : selectedItemsOption:page">
+    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : selectedItemsOption:page">
     <td *ngFor="let headers of tableConfig.headers">
       {{ data[headers.key]}}
     </td>
@@ -38,7 +38,7 @@
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        <button *ngFor="let i of data | filterpage : defaultItems:selectedItemsOption:page" (click)="selectPage(i.id) ">
+        <button *ngFor="let i of data | filterpage : selectedItemsOption : page" (click)="selectPage(i.id) ">
           {{i.id}}</button>
         <i>Pagina {{page}}</i>
       </li>

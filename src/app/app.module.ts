@@ -4,11 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {ButtonComponent} from './button/button.component';
 import {TabellaComponent} from './tabella/tabella.component';
-import {OrderPipe} from './order.pipe';
-import {FilterPipe} from './filter.pipe';
+import {OrderPipe} from './pipes/order.pipe';
+import {FilterPipe} from './pipes/filter.pipe';
 import {FormsModule} from "@angular/forms";
-import { PaginationPipe } from './pagination.pipe';
-import { FilterpagePipe } from './filterpage.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
+import { FilterpagePipe } from './pipes/filterpage.pipe';
 
 @NgModule({
   declarations: [

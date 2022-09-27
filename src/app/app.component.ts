@@ -53,7 +53,7 @@ export class AppComponent {
 
     this.pagination = {
       itemPerPage: 10,
-      itemPerPageOptions: [5, 10, 15]
+      itemPerPageOptions: [5, 10, 15, 20]
     }
 
 
@@ -224,46 +224,6 @@ export class AppComponent {
       "id": 40,
       "username": "Clim",
       "email": "Winkett"
-    }, {
-      "id": 41,
-      "username": "Edsel",
-      "email": "Orange"
-    }, {
-      "id": 42,
-      "username": "Melissa",
-      "email": "Aizikowitz"
-    }, {
-      "id": 43,
-      "username": "Derward",
-      "email": "Arnopp"
-    }, {
-      "id": 44,
-      "username": "Bengt",
-      "email": "Cohr"
-    }, {
-      "id": 45,
-      "username": "Corrina",
-      "email": "Basill"
-    }, {
-      "id": 46,
-      "username": "Antonetta",
-      "email": "Ringwood"
-    }, {
-      "id": 47,
-      "username": "Karil",
-      "email": "Rao"
-    }, {
-      "id": 48,
-      "username": "Gigi",
-      "email": "Tough"
-    }, {
-      "id": 49,
-      "username": "Teirtza",
-      "email": "Grimsdale"
-    }, {
-      "id": 50,
-      "username": "Bat",
-      "email": "Poulson"
     }]
   }
 
