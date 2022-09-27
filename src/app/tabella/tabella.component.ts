@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MyTableActionEnum, MyTableConfig} from "./myclasses";
 
 
@@ -13,6 +13,11 @@ export class TabellaComponent implements OnInit {
   @Input() tableConfig: MyTableConfig;
 
   @Input() data: any [];
+
+  @Output() deleteEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() updateEvent = new EventEmitter<void>();
+  @Output() insertEvent = new EventEmitter<string>();
+
 
   sortedOrder: string = '';
 
@@ -29,6 +34,8 @@ export class TabellaComponent implements OnInit {
   itemsOptionsPage: number [];
 
   page: number = 1;
+
+  @Output() outputTable = new EventEmitter<any>();
 
   constructor() {
   }
@@ -54,4 +61,13 @@ export class TabellaComponent implements OnInit {
   selectPage(page: number): void {
     this.page = page;
   }
+
+  onClickButton(action: MyTableActionEnum, row: any) {
+    this.outputTable.emit({action: action, row: row})
+  }
+
+  addNewItem(action: MyTableActionEnum) {
+    this.outputTable.emit({action: action});
+  }
+
 }

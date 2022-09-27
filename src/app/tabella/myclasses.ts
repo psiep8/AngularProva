@@ -8,6 +8,7 @@ export class MyTableConfig {
 
   pagination: MyPagination;
 
+  actions: MyTableActionEnum [];
 }
 
 export class MyHeaders {

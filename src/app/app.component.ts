@@ -17,8 +17,10 @@ export class AppComponent {
   order: MyOrder;
   search: MySearch;
   pagination: MyPagination;
-  action: MyTableActionEnum[];
+  actions: MyTableActionEnum[];
   data: any[];
+
+  message: string = '';
 
 
   ngOnInit(): void {
@@ -56,13 +58,18 @@ export class AppComponent {
       itemPerPageOptions: [5, 10, 15, 20]
     }
 
+    this.actions = [
+      MyTableActionEnum.EDIT, MyTableActionEnum.DELETE
+    ]
 
     this.firstTable = {
       headers: this.header,
       order: this.order,
       search: this.search,
-      pagination: this.pagination
+      pagination: this.pagination,
+      actions: this.actions
     }
+
 
     this.data = [{
       "id": 1,
@@ -225,6 +232,10 @@ export class AppComponent {
       "username": "Clim",
       "email": "Winkett"
     }]
+  }
+
+  clickButtonCustom(data: any) {
+    console.log(data);
   }
 
 

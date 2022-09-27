@@ -1,5 +1,4 @@
-<a class="btn btn-dark my-1" (click)="action.NEW_ROW"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
-
+<a class="btn btn-dark my-1" (click)="addNewItem(action.NEW_ROW)"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
 <div>
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedField">
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
@@ -21,13 +20,13 @@
   <tbody>
 
   <tr
-    *ngFor="let data of data | filter : filterText : selectedField |order : key : sortedOrder | pagination : selectedItemsOption:page">
+    *ngFor="let dataRow of data | filter : filterText : selectedField | order : key : sortedOrder | pagination : selectedItemsOption:page">
     <td *ngFor="let headers of tableConfig.headers">
-      {{ data[headers.key]}}
+      {{ dataRow[headers.key]}}
     </td>
     <th>
-      <a class="btn btn-primary my-1" (click)="action.EDIT"><i class="fa fa-pen">Modifica</i></a>
-      <a class="btn btn-danger my-1" (click)="action.DELETE"><i class="fa fa-trash-alt">Cancella</i></a>
+      <a class="btn btn-primary my-1" *ngFor="let action of tableConfig.actions"
+         (click)="onClickButton(action,dataRow.id)">{{action}}</a>
     </th>
   </tr>
   </tbody>
