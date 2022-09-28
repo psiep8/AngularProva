@@ -3,7 +3,12 @@
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
   </select>
 </div>
-
+<div *ngFor="let actions of tableConfig.actions">
+  <app-button *ngIf="actions.buttonOnTop===true" (click)="onClickButton(actions,null)"
+              [buttonConfig]=
+                "{icon:actions.icon, label:actions.label, customCssClass:actions.customCssClass}">
+  </app-button>
+</div>
 <div class="form-outline">
   <input type="text" name="filter" [(ngModel)]="filterText" placeholder="Filtra per campo">
 </div>
@@ -25,9 +30,12 @@
     </td>
     <th>
       <div *ngFor="let actions of actionConfig">
-        <button class="{{actions.customCssClass}}"><i class="fa fa-pen"><img
-          src="{{actions.icon}}" width="50px" (click)="onClickButton(actions,dataRow.id)">{{actions.label}}</i>
-        </button>
+
+        <app-button *ngIf="actions.buttonOnTop===false" (click)="onClickButton(actions,dataRow.id)"
+                    [buttonConfig]=
+                      "{icon:actions.icon, label:actions.label, customCssClass:actions.customCssClass}">
+        </app-button>
+
       </div>
     </th>
   </tr>

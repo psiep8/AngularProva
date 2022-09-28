@@ -22,10 +22,10 @@ export class ButtonComponent implements OnInit {
 
 export class MyButtonConfig {
 
-  customCssClass: string;
-
-  text: string;
-
   icon: string;
+
+  label: string;
+
+  customCssClass: string;
 
 }

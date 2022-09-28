@@ -17,8 +17,6 @@ import {
 })
 export class AppComponent {
   title = 'AngularProva';
-
-  firstButton: MyButtonConfig;
   header: MyHeaders[];
   firstTable: MyTableConfig;
   order: MyOrder;
@@ -32,20 +30,22 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-    this.firstButton = {
-      customCssClass: "",
-      text: "Premi qui",
-      icon: "https://i.ytimg.com/vi/4f3mux0q7oY/maxresdefault.jpg"
-    }
 
     this.actionButton = [{
+      icon: "https://it.seaicons.com/wp-content/uploads/2016/11/Button-Add-icon.png",
+      label: "Aggiungi nuovo utente",
+      customCssClass: "btn btn-dark",
+      buttonOnTop: true
+    }, {
       icon: "https://static.thenounproject.com/png/1054395-200.png",
       label: "Modifica",
-      customCssClass: "btn btn-secondary"
+      customCssClass: "btn btn-secondary",
+      buttonOnTop: false
     }, {
       icon: "https://img.favpng.com/15/18/2/button-delete-key-icon-png-favpng-QyKEi5YZShJs1T6X5mdfkLUSW.jpg",
       label: "Elimina",
-      customCssClass: "btn btn-primary"
+      customCssClass: "btn btn-primary",
+      buttonOnTop: false
     }
     ]
 

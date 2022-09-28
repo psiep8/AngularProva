@@ -10,6 +10,8 @@ import {MyButtonConfig} from "../button/button.component";
 })
 export class TabellaComponent implements OnInit {
 
+  @Input() buttonConfig: MyButtonConfig[];
+
   @Input() tableConfig: MyTableConfig;
 
   @Input() data: any [];
@@ -43,6 +45,7 @@ export class TabellaComponent implements OnInit {
     this.key = this.tableConfig.order.defaultColumn;
     this.sortedOrder = this.tableConfig.order.orderType;
     this.selectedItemsOption = this.tableConfig.pagination.itemPerPage.toString();
+    this.buttonConfig = this.actionConfig;
   }
 
   onSelect(key: string): void {

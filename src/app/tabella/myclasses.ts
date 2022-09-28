@@ -49,6 +49,8 @@ export class MyTableActions {
 
   customCssClass: string;
 
+  buttonOnTop: boolean;
+
 }
 
 
