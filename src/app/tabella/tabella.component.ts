@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MyTableActionEnum, MyTableConfig} from "./myclasses";
+import {MyTableActions, MyTableConfig} from "./myclasses";
+import {MyButtonConfig} from "../button/button.component";
 
 
 @Component({
@@ -8,16 +9,12 @@ import {MyTableActionEnum, MyTableConfig} from "./myclasses";
   styleUrls: ['./tabella.component.css']
 })
 export class TabellaComponent implements OnInit {
-  action = MyTableActionEnum;
 
   @Input() tableConfig: MyTableConfig;
 
   @Input() data: any [];
 
-  @Output() deleteEvent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() updateEvent = new EventEmitter<void>();
-  @Output() insertEvent = new EventEmitter<string>();
-
+  @Input() actionConfig: MyTableActions[];
 
   sortedOrder: string = '';
 
@@ -62,11 +59,11 @@ export class TabellaComponent implements OnInit {
     this.page = page;
   }
 
-  onClickButton(action: MyTableActionEnum, row: any) {
+  onClickButton(action: MyTableActions, row: any) {
     this.outputTable.emit({action: action, row: row})
   }
 
-  addNewItem(action: MyTableActionEnum) {
+  addNewItem(action: MyTableActions) {
     this.outputTable.emit({action: action});
   }
 

@@ -1,6 +1,13 @@
 import {Component} from '@angular/core';
 import {MyButtonConfig} from "./button/button.component";
-import {MyHeaders, MyOrder, MyPagination, MySearch, MyTableActionEnum, MyTableConfig} from "./tabella/myclasses";
+import {
+  MyHeaders,
+  MyOrder,
+  MyPagination,
+  MySearch,
+  MyTableActions,
+  MyTableConfig
+} from "./tabella/myclasses";
 
 
 @Component({
@@ -17,7 +24,7 @@ export class AppComponent {
   order: MyOrder;
   search: MySearch;
   pagination: MyPagination;
-  actions: MyTableActionEnum[];
+  actionButton: MyTableActions[];
   data: any[];
 
   message: string = '';
@@ -26,10 +33,21 @@ export class AppComponent {
   ngOnInit(): void {
 
     this.firstButton = {
-      customCssClass: "provaCss",
+      customCssClass: "",
       text: "Premi qui",
       icon: "https://i.ytimg.com/vi/4f3mux0q7oY/maxresdefault.jpg"
     }
+
+    this.actionButton = [{
+      icon: "https://static.thenounproject.com/png/1054395-200.png",
+      label: "Modifica",
+      customCssClass: "btn btn-secondary"
+    }, {
+      icon: "https://img.favpng.com/15/18/2/button-delete-key-icon-png-favpng-QyKEi5YZShJs1T6X5mdfkLUSW.jpg",
+      label: "Elimina",
+      customCssClass: "btn btn-primary"
+    }
+    ]
 
     this.order = {
       defaultColumn: "id",
@@ -58,16 +76,12 @@ export class AppComponent {
       itemPerPageOptions: [5, 10, 15, 20]
     }
 
-    this.actions = [
-      MyTableActionEnum.EDIT, MyTableActionEnum.DELETE
-    ]
-
     this.firstTable = {
       headers: this.header,
       order: this.order,
       search: this.search,
       pagination: this.pagination,
-      actions: this.actions
+      actions: this.actionButton
     }
 
 

@@ -8,7 +8,7 @@ export class MyTableConfig {
 
   pagination: MyPagination;
 
-  actions: MyTableActionEnum [];
+  actions: MyTableActions[];
 }
 
 export class MyHeaders {
@@ -41,7 +41,14 @@ export class MyPagination {
 
 }
 
-export enum MyTableActionEnum {
-  NEW_ROW, EDIT, DELETE
+export class MyTableActions {
+
+  icon: string;
+
+  label: string;
+
+  customCssClass: string;
+
 }
+
 

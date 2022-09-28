@@ -1,4 +1,3 @@
-<a class="btn btn-dark my-1" (click)="addNewItem(action.NEW_ROW)"><i class="fa fa-pen">Inserisci nuovo utente</i></a>
 <div>
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedField">
     <option *ngFor="let column of columns" [value]="column">{{column}}</option>
@@ -25,8 +24,11 @@
       {{ dataRow[headers.key]}}
     </td>
     <th>
-      <a class="btn btn-primary my-1" *ngFor="let action of tableConfig.actions"
-         (click)="onClickButton(action,dataRow.id)">{{action}}</a>
+      <div *ngFor="let actions of actionConfig">
+        <button class="{{actions.customCssClass}}"><i class="fa fa-pen"><img
+          src="{{actions.icon}}" width="50px" (click)="onClickButton(actions,dataRow.id)">{{actions.label}}</i>
+        </button>
+      </div>
     </th>
   </tr>
   </tbody>
