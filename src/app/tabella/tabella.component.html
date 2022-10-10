@@ -44,12 +44,12 @@
   <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedItemsOption">
     <option *ngFor="let i of itemsOptionsPage">{{i}}</option>
   </select>
+
   <nav aria-label="...">
     <ul class="pagination pagination-lg">
       <li class="page-item active" aria-current="page">
-        <button *ngFor="let i of data | filterpage : selectedItemsOption : page" (click)="selectPage(i.id) ">
-          {{i.id}}</button>
-        <i>Pagina {{page}}</i>
+
+
       </li>
     </ul>
   </nav>

@@ -30,7 +30,6 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-
     this.actionButton = [{
       icon: "https://it.seaicons.com/wp-content/uploads/2016/11/Button-Add-icon.png",
       label: "Aggiungi nuovo utente",
@@ -246,6 +245,7 @@ export class AppComponent {
       "username": "Clim",
       "email": "Winkett"
     }]
+
   }
 
   clickButtonCustom(data: any) {

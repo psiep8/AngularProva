@@ -36,6 +36,8 @@ export class TabellaComponent implements OnInit {
 
   @Output() outputTable = new EventEmitter<any>();
 
+  size!: number;
+
   constructor() {
   }
 
@@ -46,6 +48,8 @@ export class TabellaComponent implements OnInit {
     this.sortedOrder = this.tableConfig.order.orderType;
     this.selectedItemsOption = this.tableConfig.pagination.itemPerPage.toString();
     this.buttonConfig = this.actionConfig;
+    this.size = this.data.length;
+    console.log(this.size)
   }
 
   onSelect(key: string): void {
